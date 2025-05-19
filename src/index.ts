@@ -3,6 +3,7 @@ import express from "express";
 import "reflect-metadata";
 import { AppDataSource } from "./data-sources";
 import path from "path";
+import cors from "cors";
 
 import userRoutes from "./routes/userRoutes";
 import spaceRoutes from "./routes/spaceRoutes";
@@ -11,6 +12,7 @@ import bookRoutes from "./routes/bookRoutes";
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.use(express.static(path.join(__dirname, "./public")));
 app.get("/", (req, res) => {
